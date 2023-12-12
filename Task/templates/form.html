@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <h2>Form</h2>
+    <form action="{% url 'Restapp:form_page' %}" method="POST">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Name" required><br>
+        <input type="text" name="dob" placeholder="Date of Birth" required><br>
+        <input type="number" name="age" placeholder="Age" required><br>
+        <input type="radio" name="gender" value="male" required> Male
+        <input type="radio" name="gender" value="female" required> Female<br>
+        <input type="number" name="phone" placeholder="Phone Number" pattern="[0-9]{10}" required><br>
+        <input type="email" name="email" placeholder="Email" required><br>
+        <textarea name="address" placeholder="Address" required></textarea><br>
+       <label for="department">Select Department:</label>
+        <select id="department" name="department" required>
+            <option value="" disabled selected>Select Department</option>
+            <option value="Science">Science</option>
+            <option value="Commerce">Commerce</option>
+            <option value="Humanities">Humanities</option>
+            <option value="MBA">MBA</option>
+            <option value="Computational Biology">Computational Biology</option>
+        </select><br>
+        <label for="courses">Select Course:</label>
+        <select id="courses" name="courses" required>
+            <option value="none" disabled selected>Select Course</option>
+            <optgroup label="Science">
+                <option value="BSc">BSc</option>
+                <option value="MSc">MSc</option>
+                <option value="PhD">PhD</option>
+            </optgroup>
+            <optgroup label="Commerce">
+                <option value="BBA">BBA</option>
+                <option value="BCom">BCom</option>
+                <option value="MCom">MCom</option>
+            </optgroup>
+            <optgroup label="Humanities">
+                <option value="Psychology">Psychology</option>
+                <option value="Animation">Animation</option>
+                <option value="BA LLB">BA LLB</option>
+            </optgroup>
+            <optgroup label="MBA">
+                <option value="Finance">Finance</option>
+                <option value="HRM">HRM</option>
+                <option value="Supply Chain">Supply Chain</option>
+            </optgroup>
+            <optgroup label="Computational Biology">
+                <option value="Biochemistry">Biochemistry</option>
+                <option value="Bioinformatics">Bioinformatics</option>
+                <option value="Biodiversity">Biodiversity</option>
+            </optgroup>
+        </select>
+        <br>
+        <label for="purpose">Select Purpose:</label>
+        <select id="purpose" name="purpose" required>
+            <option value="enquiry">Enquiry</option>
+            <option value="place_order">Place Order</option>
+            <option value="return">Return</option>
+            <option value="Exchange">Exchange</option>
+            <option value="Refund">Refund</option>
+        </select><br>
+        <label>Materials Provide:</label>
+        <input type="checkbox" id="rocketbook">Rocketbook
+        <input type="checkbox" id="Highlighters">Highlighters
+        <input type="checkbox" id="binders">Binders
+        <input type="checkbox" id="Backpack">Backpack
+        <input type="checkbox" id="stickynotes">StickyNotes<br><br>
+<!--   <button type="submit">Submit</button><br>-->
+        <a href="{% url 'Restapp:submit_form' %}">Submit</a>
+    </form>
+</body>
+</html>
+{% endblock %}

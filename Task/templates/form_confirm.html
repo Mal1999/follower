@@ -1,0 +1,25 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Form confirmation</title>
+</head>
+<body>
+
+
+<main>
+    <form method="post" action="{% url 'Restapp:form_submitted' %}">
+        {% csrf_token %}
+        <h4>Order Confirmed</h4>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="home-link">
+            <a href="/">Return to Home Page</a>
+    </div>
+</main>
+</body>
+</html>
+
+
+

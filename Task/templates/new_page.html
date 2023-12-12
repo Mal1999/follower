@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<body>
+<h2>Welcome to the New Page</h2>
+<a href="{% url 'Restapp:form_page' %}" aria-label="Open Form">
+    <button>Open Form</button>
+</a>
+{% endblock %}

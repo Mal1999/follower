@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if not request.user.is_authenticated %}
+<div class="divs" style='margin-top:30px;'>
+    <form method="POST">{% csrf_token %}
+        {% if error %}
+        <p style="color:red">{{ error }}</p>
+        {% endif %}
+        <div>
+            <input type="text" id="username" name="username" placeholder="username"/><br>
+        </div>
+        <div>
+            <input type="password" name="password" placeholder="password"/><br>
+        </div>
+        <button type="submit">Login</button>
+    </form>
+    <p>Need an account?Please<a href="{% url 'Restapp:register' %}">Register</a></p>
+</div>
+{% else %}
+<p>You're already logged in.Would u like to <a href="{% url 'Restapp:logout_view' %}">logout</a></p>
+{% endif %}
+{% endblock %}
+
+
+
+
+

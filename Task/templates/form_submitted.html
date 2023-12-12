@@ -1,0 +1,10 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Order Confirmed{% endblock %}
+
+{% block content %}
+    <h2>Order Confirmed</h2>
+    <p>Thank you for submitting the form!</p>
+    <a href="{% url 'Restapp:home_view' %}">Return to Home Page</a>
+{% endblock %}

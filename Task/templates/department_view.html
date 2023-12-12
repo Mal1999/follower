@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block title %}Department: {{ department }}{% endblock %}
+
+{% block content %}
+    <h2>{{ department }} Department</h2>
+    <p>Learn more about {{ department }} on <a href="{{ wikipedia_link }}" target="_blank">Wikipedia</a>.</p>
+{% endblock %}

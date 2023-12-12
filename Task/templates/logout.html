@@ -1,0 +1,16 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+    <div class="divs" style='margin-top:30px;'>
+        <form method="POST">{% csrf_token %}
+           <p>Are u sure u want to logout?</p>
+            <button type="submit">Yes Logout</button>
+        </form>
+    </div>
+{% else %}
+<p>You're not logged in.Would u like to <a href="{% url 'Restapp:login_view' %}">login</a></p>
+{% endif %}
+
+{% endblock %}

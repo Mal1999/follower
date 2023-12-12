@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if not request.user.is_authenticated %}
+<div class="divs" style="margin-top:30px;">
+    <form method="POST">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Register</button>
+    </form>
+    <p>Already have an act?Please <a href="{% url 'Restapp:login_view' %}">Login</a></p>
+</div>
+{% else %}
+<div class="divs" style="margin-top:30px;">
+    <p>Need an account? Please <a href="{% url 'Restapp:logout_view' %}">Logout</a></p>
+</div>
+{% endif %}
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
